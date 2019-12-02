@@ -711,11 +711,11 @@ CANormalization <- function(ca.object, normalization = "Principal")
     rows <- .normalize(ca.object$rowcoord, switch(normalization,
                                                   "Principal" = 1, "Row principal" = 1, "Row principal (scaled)" = 1,
                                                   "Column principal" = 0, "Column principal (scaled)" = 0,
-                                                  "Symmetrical (\u00BD)" = 0.5, "None" = 0, "Inverse" = -1))
+                                                  "Symmetrical (1/2)" = 0.5, "None" = 0, "Inverse" = -1))
     columns <- .normalize(ca.object$colcoord, switch(normalization,
                                                      "Principal" = 1, "Row principal" = 0, "Row principal (scaled)" = 0,
                                                      "Column principal" = 1, "Column principal (scaled)" = 1,
-                                                     "Symmetrical (\u00BD)" = 0.5, "None" = 0, "Inverse" = -1))
+                                                     "Symmetrical (1/2)" = 0.5, "None" = 0, "Inverse" = -1))
 
     if (normalization == "Row principal (scaled)")
         columns = columns * ca.object$sv[1]
